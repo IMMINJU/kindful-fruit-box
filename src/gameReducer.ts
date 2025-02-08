@@ -18,6 +18,7 @@ export const initialState: GameState = {
   selectionStart: null,
   selectionEnd: null,
   selectedSum: 0,
+  isStarted: false,
 };
 
 export function gameReducer(state: GameState, action: GameAction): GameState {
@@ -33,6 +34,11 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
       return endSelection(state);
     case "SET_GAME_OVER":
       return { ...state, gameOver: true };
+    case "START_GAME":
+      return {
+        ...state,
+        isStarted: true,
+      };
     default:
       return state;
   }

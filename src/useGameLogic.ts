@@ -58,6 +58,11 @@ export function useGameLogic() {
     }
   }, [state.apples, state.score]);
 
+  const startGame = useCallback(() => {
+    initializeGame();
+    dispatch({ type: "START_GAME" });
+  }, [initializeGame]);
+
   const memoizedState = useMemo(() => state, [state]);
 
   return {
@@ -66,5 +71,6 @@ export function useGameLogic() {
     updateSelection,
     endSelection,
     checkGameOver,
+    startGame,
   };
 }

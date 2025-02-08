@@ -16,13 +16,15 @@ export interface GameState {
   selectionStart: Position | null;
   selectionEnd: Position | null;
   selectedSum: number;
+  isStarted: boolean;
 }
 
 export type GameAction =
   | { type: "INITIALIZE_GAME"; payload: (Apple | null)[] }
   | { type: "UPDATE_SELECTION"; payload: { start: Position; end: Position } }
   | { type: "END_SELECTION" }
-  | { type: "SET_GAME_OVER" };
+  | { type: "SET_GAME_OVER" }
+  | { type: "START_GAME" };
 
 export const GRID_COLS = 17;
 export const GRID_ROWS = 10;
